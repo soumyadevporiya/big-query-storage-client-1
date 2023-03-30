@@ -1,0 +1,4 @@
+bs4
+kafka-python
+google-cloud-storage
+google-cloud-bigquery-storage

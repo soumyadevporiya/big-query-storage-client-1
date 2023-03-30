@@ -9,7 +9,7 @@ from kafka import KafkaProducer
 import urllib.request
 from google.cloud.bigquery_storage import ReadSession
 from google.cloud.bigquery_storage import  DataFormat
-
+import pandas
 
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'D:/googleapi/level-approach-382012-1b97f11ea02f.json'
 

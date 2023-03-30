@@ -3,7 +3,7 @@ import json
 from google.cloud.bigquery_storage import BigQueryReadClient
 from google.cloud.bigquery_storage import types
 from google.cloud import bigquery_storage
-import pandas
+# import pandas
 import os
 from kafka import KafkaConsumer
 from kafka import KafkaProducer

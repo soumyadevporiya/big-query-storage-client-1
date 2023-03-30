@@ -3,15 +3,13 @@ import json
 from google.cloud.bigquery_storage import BigQueryReadClient
 from google.cloud.bigquery_storage import types
 from google.cloud import bigquery_storage
-# import pandas
 import os
 from kafka import KafkaConsumer
 from kafka import KafkaProducer
 import urllib.request
 from google.cloud.bigquery_storage import ReadSession
 from google.cloud.bigquery_storage import  DataFormat
-import pandas
-#import panda
+
 
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'D:/googleapi/level-approach-382012-1b97f11ea02f.json'
 

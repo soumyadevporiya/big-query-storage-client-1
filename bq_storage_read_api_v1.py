@@ -30,7 +30,7 @@ read_options = ReadSession.TableReadOptions(
               selected_fields=["id", "name","Time"]
     )
 #read_options.row_restriction = "partition_field like '%INSBI1%'"
-read_options.row_restriction = "partition_field BETWEEN 2 AND 3"
+read_options.row_restriction = "partition_field BETWEEN 0 AND 1"
 
 parent = "projects/{}".format(project_id_billing)
 

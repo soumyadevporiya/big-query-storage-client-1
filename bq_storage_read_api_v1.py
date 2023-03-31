@@ -20,6 +20,8 @@ bqstorageclient = BigQueryReadClient()
 #rs = types.
 
 project_id = "level-approach-382012"
+
+
 dataset_id = "gcpdataset"
 table_id = "my-table-customer-records"
 table = f"projects/{project_id}/datasets/{dataset_id}/tables/{table_id}"
@@ -28,7 +30,7 @@ read_options = ReadSession.TableReadOptions(
               selected_fields=["id", "name","Time"]
     )
 #read_options.row_restriction = "partition_field like '%INSBI1%'"
-read_options.row_restriction = "partition_field BETWEEN 0 AND 1"
+read_options.row_restriction = "partition_field BETWEEN 2 AND 3"
 
 parent = "projects/{}".format(project_id_billing)
 
@@ -68,6 +70,9 @@ print(names)
 consumer = KafkaConsumer('my-topic', bootstrap_servers=['35.225.83.11:9094'], auto_offset_reset='latest')
 
 for message in consumer:
+    producer = KafkaProducer(bootstrap_servers=['35.225.83.11:9094'], api_version=(0, 10))
+    received = {"Received at: ": str(int(round(time.time())))}
+    producer.send('my-second-topic', json.dumps(received).encode('utf-8'))
     stream = read_session.streams[0] #read every stream from 0 to 3
     reader = bqstorageclient.read_rows(stream.name)
     #rows = reader.rows(read_session)
@@ -76,7 +81,7 @@ for message in consumer:
     x3 = json.loads(x2)["sanction_payload"]
     count = 0
     frames = []
-    producer = KafkaProducer(bootstrap_servers=['35.225.83.11:9094'], api_version=(0, 10))
+
     for my_message in reader.rows().pages:
         dict = {"customer_details_payload": my_message.to_dataframe().to_dict(),"sanction_payload":x3}
         producer.send('my-first-topic', json.dumps(dict).encode('utf-8'))

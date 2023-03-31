@@ -13,13 +13,13 @@ import pandas
 
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'D:/googleapi/level-approach-382012-1b97f11ea02f.json'
 
-project_id_billing = 'level-approach-382012'# A Project where you have biquery.readsession permission
+project_id_billing = 'smooth-league-382303'# A Project where you have biquery.readsession permission
 
 bqstorageclient = BigQueryReadClient()
 
 #rs = types.
 
-project_id = "level-approach-382012"
+project_id = "smooth-league-382303"
 
 
 dataset_id = "gcpdataset"

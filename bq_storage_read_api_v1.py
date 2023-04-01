@@ -23,11 +23,11 @@ project_id = "smooth-league-382303"
 
 
 dataset_id = "gcpdataset"
-table_id = "my-table-customer-records"
+table_id = "my-table-customer-records-2"
 table = f"projects/{project_id}/datasets/{dataset_id}/tables/{table_id}"
 
 read_options = ReadSession.TableReadOptions(
-              selected_fields=["id", "name","Time"]
+              selected_fields=["id", "name"]
     )
 #read_options.row_restriction = "partition_field like '%INSBI1%'"
 read_options.row_restriction = "partition_field BETWEEN 0 AND 1"
